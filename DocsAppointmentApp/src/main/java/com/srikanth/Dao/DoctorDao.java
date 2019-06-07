@@ -14,5 +14,7 @@ public interface DoctorDao {
 	public List<Doctor> getDoctorsBySpecialization(String specialization);
 	
 	public List<Doctor> getListOfDoctors();
+	
+	
 
 }

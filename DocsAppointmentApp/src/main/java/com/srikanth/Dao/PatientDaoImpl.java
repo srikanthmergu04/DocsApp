@@ -91,4 +91,33 @@ public class PatientDaoImpl implements PatientDao {
 		
 	}
 
+	public void deletePatientProfile(Integer pid) {
+		// TODO Auto-generated method stub
+		
+		Session session = sessionFactory.openSession();
+		
+		Transaction tran = session.beginTransaction();
+		
+		Patient patient = (Patient) session.get(Patient.class, pid);
+		
+		session.delete(patient);
+		
+		tran.commit();
+		
+		session.close();
+		
+	}
+
+	public int updatePatientProfile(Patient patient) {
+		// TODO Auto-generated method stub
+		
+		Session session = sessionFactory.openSession();
+		
+		Transaction tran = session.beginTransaction();
+		
+		session.update(patient);
+		
+		return 0;
+	}
+
 }

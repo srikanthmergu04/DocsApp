@@ -14,5 +14,11 @@ public interface PatientService {
 	
 	public void selectDoctor(Integer pid , Integer did);
 	
+	public Patient getPatientObject(Integer pid);
+	
+	public void deletePatientProfile(Integer pid);
+	
+	public int updatePatientProfile(Patient patient);
+	
 
 }

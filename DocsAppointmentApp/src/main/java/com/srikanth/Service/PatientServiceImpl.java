@@ -57,4 +57,27 @@ public class PatientServiceImpl implements PatientService {
 		
 	}
 
+	public Patient getPatientObject(Integer pid) {
+		// TODO Auto-generated method stub
+		
+		Patient patient = patientDao.getPatientObject(pid);
+		
+		return patient;
+	}
+
+	public void deletePatientProfile(Integer pid) {
+		// TODO Auto-generated method stub
+		
+		patientDao.deletePatientProfile(pid);
+		
+	}
+
+	public int updatePatientProfile(Patient patient) {
+		// TODO Auto-generated method stub
+		
+		patientDao.updatePatientProfile(patient);
+		
+		return 0;
+	}
+
 }

@@ -6,9 +6,14 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
   <jsp:include page="bookAppointment.jsp" />  
+  <br>
   <center>
 
 <h1>Doctors List</h1>  
+
+
+
+<h4> Select the Doctor for Your Appointment </h4>
 
 <form action = "bookDoctor" method = "post">
 <table border="5" cellpadding= '8' >  

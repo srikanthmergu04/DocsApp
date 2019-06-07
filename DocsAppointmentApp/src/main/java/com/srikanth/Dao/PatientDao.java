@@ -14,5 +14,9 @@ public interface PatientDao {
 	public List<Patient> getListOfPatients();
 	
 	public void selectDoctor(Integer pid , Integer did);
+	
+	public void deletePatientProfile(Integer pid);
+	
+	public int updatePatientProfile(Patient patient);
 
 }

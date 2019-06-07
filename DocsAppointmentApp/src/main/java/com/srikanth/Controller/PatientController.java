@@ -41,7 +41,7 @@ public class PatientController {
 	}
 	
 	@RequestMapping("/patientLogin")
-	public String patientLogin(HttpServletRequest req)
+	public String patientLogin(HttpServletRequest req , Model model)
 	{
 		Integer pid = Integer.parseInt(req.getParameter("pid"));
 		
@@ -51,7 +51,7 @@ public class PatientController {
 		
 		if(status == 1)
 		{
-			
+			model.addAttribute("pid", pid);
 			return "patientFeatures.jsp";
 			
 		}
@@ -97,6 +97,61 @@ public class PatientController {
 		
 	}
 	
+	@RequestMapping("/patientId")
+	public String bookAppointment(HttpServletRequest req , Model model)
+	{
+		Integer pid = Integer.parseInt(req.getParameter("pid"));
+		model.addAttribute("pid", pid);
+		return "bookAppointment.jsp";
+	}
+	
+	@RequestMapping("/viewPatientProfile")
+	public String viewPatientProfileBYId(HttpServletRequest req , Model model)
+	{
+		Integer pid = Integer.parseInt(req.getParameter("pid"));
+		
+		Patient patient = patientService.getPatientObject(pid);
+		
+		model.addAttribute("patient", patient);
+		
+		return "PatientDetailsById.jsp";
+		
+	}
+	
+	@RequestMapping(value = "/updateOrDelete" , method = RequestMethod.POST)
+	public String performUpdateOrDelete(HttpServletRequest req , Model model)
+	{
+		Integer pid = Integer.parseInt(req.getParameter("pid"));
+		
+		String action = req.getParameter("action");
+		
+		if(action.equals("update"))
+		{
+			Patient patient = patientService.getPatientObject(pid);
+			model.addAttribute("patient", patient);
+			return "updatePatientDetails.jsp";
+		}
+		else
+		{
+			patientService.deletePatientProfile(pid);
+			return "patDelSuccess.jsp";
+		}
+		
+		
+	}
+	
+	@RequestMapping(value = "/updatePatient" , method = RequestMethod.POST)
+	public String updatePatient(HttpServletRequest req ,@ModelAttribute("patient") Patient patient , Model model)
+	{
+		
+		Integer pid = Integer.parseInt(req.getParameter("pid"));
+		
+		patient.setPid(pid);
+		patientService.updatePatientProfile(patient);
+		model.addAttribute("patient", patient);
+		return "PatientDetailsById.jsp";
+		
+	}
 	
 
 
