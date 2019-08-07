@@ -37,7 +37,17 @@ public class DoctorDaoImpl implements DoctorDao {
 		
 		Session session = sessionFactory.openSession();
 		
-		return (Doctor) session.get(Doctor.class, pid);
+		Doctor doctor = (Doctor) session.get(Doctor.class, pid);
+		
+	//	session.close();
+		
+		/* return (Doctor) session.get(Doctor.class, pid); */
+		
+		return doctor;
+		
+		
+		
+		
 	}
 
 	public List<Doctor> getDoctorsBySpecialization(String specialization) {

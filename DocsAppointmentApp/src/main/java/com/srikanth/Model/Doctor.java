@@ -47,7 +47,7 @@ public class Doctor {
 	@Column
 	private String pin;
 	
-	@ManyToMany(cascade = CascadeType.ALL , targetEntity = Patient.class , fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL , targetEntity = Patient.class , fetch = FetchType.LAZY)
 	@JoinTable(name = "Doctor_Patient" ,
 	joinColumns = { @JoinColumn(name = "Doctor_id") } , 
 	inverseJoinColumns = { @JoinColumn(name = "Patient_id")}

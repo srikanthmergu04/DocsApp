@@ -20,6 +20,16 @@
 <input type = "submit" value = "List of Patients">
 </form>
 
+<br><br>
+
+<form action = "copyPatientDetailsToFile">
+<input type = "submit" value = "copy Patient Details to File">
+</form>
+
+
+
+
+
 </center>
 
 </body>

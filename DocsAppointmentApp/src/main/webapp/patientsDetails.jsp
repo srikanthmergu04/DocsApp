@@ -4,14 +4,13 @@
 %>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
-   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
   <center>
 
 <h1>Patients List</h1>  
 
 <table border="5" cellpadding= '8' >  
 <tr>
-
 
 <th>ID</th>
 <th>Name</th>
@@ -36,10 +35,11 @@
    </tr>  
    </c:forEach>  
    </table>
+   
    <br>
    <br>
 
-  <form action = "index.jsp">
+<form action = "index.jsp">
 <input type = "submit" value = "Homepage">
 </form> 
    
